@@ -1,4 +1,4 @@
-# (HA) HAproxy
+# (HA) HAProxy
 
 <p align=center>
    <a href="https://github.com/dockette/haproxy/actions"><img src="https://github.com/dockette/haproxy/actions/workflows/docker.yml/badge.svg" alt="GitHub Actions"></a>
@@ -7,15 +7,18 @@
    <a href="https://github.com/orgs/dockette/discussions"><img src="https://img.shields.io/badge/support-discussions-6f42c1" alt="Support/Discussions"></a>
 </p>
 
-Ready-to-use Debian HAproxy.
+Ready-to-use Debian HAProxy.
 
 -----
 
 ## Usage
 
 ```
-docker run -v /path/to/site:/srv dockette/haproxy
+docker run --rm -p 80:80 -p 1936:1936 dockette/haproxy
 ```
+
+The default configuration proxies HTTP traffic to backend servers named `app:80`.
+Expose port `1936` to access HAProxy stats at `/haproxy/stats` with `haproxy:stats`.
 
 ## Maintenance
 
